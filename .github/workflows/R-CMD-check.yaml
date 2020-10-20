@@ -73,6 +73,7 @@ jobs:
         run: |
           Rscript -e "try(reticulate::install_miniconda())"
           Rscript -e "try(reticulate::conda_create("r-reticulate"))"
+          Rscript -e "try(reticulate::py_config())"
 
       - name: Install colorio
         run: |
