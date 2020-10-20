@@ -74,8 +74,9 @@ jobs:
           Rscript -e "try(reticulate::install_miniconda())"
 
       - name: Install colorio
-        run:
-           Rscript -e "try(colorio::install_colorio())"
+        run: |
+          Rscript -e "try(remotes::install_local())"
+          Rscript -e "try(colorio::install_colorio())"
 
       - name: Check
         env:
