@@ -20,3 +20,5 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Imports: 
     reticulate
+URL: https://github.com/ijlyttle/colorio
+BugReports: https://github.com/ijlyttle/colorio/issues
