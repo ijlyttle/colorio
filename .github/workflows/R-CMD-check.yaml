@@ -69,16 +69,21 @@ jobs:
           remotes::install_cran("rcmdcheck")
         shell: Rscript {0}
 
+        # remove with install_github() with reticulate 1.17
       - name: Install Python
         run: |
+          Rscript -e "try(remotes::install_github('rstudio/reticulate')"
           Rscript -e "try(reticulate::install_miniconda())"
           Rscript -e "try(reticulate::conda_create('r-reticulate'))"
-          Rscript -e "try(reticulate::py_config())"
 
       - name: Install colorio
         run: |
           Rscript -e "try(remotes::install_local())"
           Rscript -e "try(colorio::install_colorio())"
+
+      - name: Confirm Python and check colorio
+        run: |
+          Rscript -e "try(reticulate::py_config())"
           Rscript -e "try(colorio::check_colorio(quiet = FALSE))"
 
       - name: Check
