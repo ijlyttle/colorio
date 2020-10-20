@@ -75,7 +75,7 @@ jobs:
           Rscript -e "try(remotes::install_github('rstudio/reticulate'))"
           Rscript -e "try(reticulate::install_miniconda())"
           Rscript -e "try(reticulate::conda_create('r-reticulate'))"
-          Rscript -e "try(reticulate::conda_install('r-reticulate', packages = 'numpy'))"
+          Rscript -e "try(reticulate::conda_install('r-reticulate', packages = c('numpy', 'matplotlib'))"
 
       - name: Install colorio
         run: |
