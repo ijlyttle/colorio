@@ -46,9 +46,17 @@ install_colorio <- function(method = c("conda", "virtualenv"),
 
   # call installer
   if (identical(method, "conda")) {
+    # install numpy, matplotlib using conda
     reticulate::conda_install(
-      packages = packages,
       envname = envname,
+      packages = c("numpy", "matplotlib"),
+      pip = FALSE,
+      ...
+    )
+    # install actual packages using pip
+    reticulate::conda_install(
+      envname = envname,
+      packages = packages,
       pip = pip,
       ...
     )
