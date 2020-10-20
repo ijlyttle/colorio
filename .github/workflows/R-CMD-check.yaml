@@ -79,6 +79,7 @@ jobs:
         run: |
           Rscript -e "try(remotes::install_local())"
           Rscript -e "try(colorio::install_colorio())"
+          Rscript -e "try(colorio::check_colorio(quiet = FALSE))"
 
       - name: Check
         env:
