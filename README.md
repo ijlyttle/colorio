@@ -34,26 +34,18 @@ You can install the development version of colorio from
 devtools::install_github("ijlyttle/colorio")
 ```
 
-Because this package uses the colorio Python package, you need to
-install it in a place that reticulate can find it. The way I recommend
-is to use a Conda installation.
+Because this package uses the colorio Python package, you may need to
+follow a few steps. My recommendations are to
 
-If you do not already have one, you can create one:
+  - use (or create) a Conda installation.
+  - use (or create) a Python environment called `r-reticulate`.
+  - install the colorio Python package.
+
+<!-- end list -->
 
 ``` r
 reticulate::install_miniconda()
-```
-
-Then, you need to create (or use) a Conda environment; I recommend you
-use an environment called `r-reticulate`:
-
-``` r
-reticulate::conda_create('r-reticulate')
-```
-
-Finally, you can install the colorio Python package:
-
-``` r
+reticulate::conda_create("r-reticulate")
 colorio::install_colorio()
 ```
 
