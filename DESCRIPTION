@@ -1,0 +1,22 @@
+Package: colorio
+Title: Interface to 'colorio'
+Version: 0.0.0.9000
+Authors@R: c(
+    person(given = "Ian J",
+           family = "Lyttle",
+           role = c("aut", "cre"),
+           email = "ian.lyttle@se.com",
+           comment = c(ORCID = "0000-0001-9962-4849")),
+    person("Nico", "Schlomer", comment = "colorio library", role = c("ctb"))
+ )
+Description: Interface to 'colorio' <https://github.com/nschloe/colorio>, which
+  is a 'Python' toolset for color models. This package uses the 'Reticulate' 
+  framework <https://rstudio.github.io/reticulate> to manage the interface 
+  between R and 'Python'.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+    reticulate
