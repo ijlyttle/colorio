@@ -72,7 +72,7 @@ jobs:
         # remove with install_github() with reticulate 1.17
       - name: Install Python
         run: |
-          Rscript -e "try(remotes::install_github('rstudio/reticulate')"
+          Rscript -e "try(remotes::install_github('rstudio/reticulate'))"
           Rscript -e "try(reticulate::install_miniconda())"
           Rscript -e "try(reticulate::conda_create('r-reticulate'))"
 
