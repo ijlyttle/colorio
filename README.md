@@ -66,12 +66,13 @@ colorio::check_colorio()
 library("colorio")
 ```
 
-In colorio, the basic unit of analysis is the color space. We will call
-functions that will create color-space objects; those objects will have
-methods we can call to convert to and from the “central” color-space:
-XYZ100, the [CIE 1931 XYZ color
-space](https://en.wikipedia.org/wiki/CIE_1931_color_space), normalized
-to 100.
+In colorio, the basic unit of analysis is the color, expressed as three
+numbers - one for each dimension of a **color space**. This package has
+functions to create color-space objects; those objects will have methods
+we can call to convert to and from the “central” color-space: XYZ100,
+the [CIE 1931 XYZ color
+space](https://en.wikipedia.org/wiki/CIE_1931_color_space) with
+dimensions normalized to 100.
 
 To convert values from one color space to another, we create each of the
 color-space objects - then use the `to_xyz100()` method from one of the
@@ -79,7 +80,8 @@ color spaces, then the `from_xyz100()` method from the other.
 
 ### Conversion to/from LUV
 
-To help demonstrate, we can use the farver package, which has
+To help demonstrate, we can use the
+[**farver**](https://farver.data-imaginist.com/) package, which has
 capabilities that overlap with this package.
 
 ``` r
@@ -93,8 +95,8 @@ farver_xyz100
 ```
 
 The `farver::decode_colour()` function returns a matrix with a color in
-each row, and each column named for a dimension. We can convert this to
-LUV coordinates:
+each row, and each column named for a dimension. We can convert these
+colors to the LUV color space:
 
 ``` r
 farver_luv <- farver::convert_colour(farver_xyz100, from = "xyz", to = "luv")
@@ -106,15 +108,15 @@ farver_luv
 
 Again, we get a matrix with a color in each row.
 
-We can make the analogous calculations using colorio; the first step is
-to create an instance of the LUV color space:
+We can make analogous calculations using colorio; the first step is to
+create an instance of the LUV color space:
 
 ``` r
 LUV <- colorio$CIELUV()
 ```
 
 This color space (as do all colorio color spaces) has a `from_xyz100()`
-method. Becuase Python is row-based and R is column-based, we have to
+method. Because Python is row-based and R is column-based, we have to
 use the transpose function, `t()`:
 
 ``` r
