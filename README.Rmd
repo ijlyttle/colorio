@@ -161,3 +161,7 @@ There is nothing stopping you from providing non-Cartesian coordinates, other th
 - R package [farver](https://farver.data-imaginist.com/), by Thomas Lin Pedersen
 - R package [colorspace](http://hclwizard.org/r-colorspace/), by Achim Zeileis et al.
 - Python package [colorspacious](https://github.com/njsmith/colorspacious), by Nathaniel Smith
+
+## Code of Conduct
+
+Please note that the colorio project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
