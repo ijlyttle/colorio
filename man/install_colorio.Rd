@@ -36,8 +36,7 @@ to use a common Python environment, called \code{"r-reticulate"}.
 Depending on your setup, you can create this environment using
 \code{\link[reticulate:conda-tools]{reticulate::conda_create()}} or \code{\link[reticulate:virtualenv-tools]{reticulate::virtualenv_create()}},
 as described in this
-\href{https://rstudio.github.io/reticulate/articles/python_packages.html#conda-installation}{reticulate article},
-or in this package's \href{https://vegawidget.github.io/altair/articles/installation.html#python-env}{Installation article}.
+\href{https://rstudio.github.io/reticulate/articles/python_packages.html#conda-installation}{reticulate article}.
 }
 \examples{
 if (FALSE) {

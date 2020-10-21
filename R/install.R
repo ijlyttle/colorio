@@ -13,8 +13,7 @@
 #' Depending on your setup, you can create this environment using
 #' [reticulate::conda_create()] or [reticulate::virtualenv_create()],
 #' as described in this
-#' [reticulate article](https://rstudio.github.io/reticulate/articles/python_packages.html#conda-installation),
-#' or in this package's [Installation article](https://vegawidget.github.io/altair/articles/installation.html#python-env).
+#' [reticulate article](https://rstudio.github.io/reticulate/articles/python_packages.html#conda-installation).
 #'
 #' @param method `character`, indicates to use `"conda"` or `"virtualenv"`
 #' @param envname `character`, name of environment into which to install
