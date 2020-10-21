@@ -148,10 +148,13 @@ waldo::compare(farver_luv, t(colorio_luv))
 #> `y`: 12.6215540 42.0081456 -5.4064723 -20.2486079 -11.5545117 -47.5547584
 ```
 
-Given that a visible difference is on the order of 1.0, we are not
-concerned with differences in the sixth decimal place. Instead, we are
-encouraged that we can get the “same” answer using two different
-implementations.
+We see that colorio does not return dimension-names (we knew that), and
+that numerical differences are on the order of `1.e-6`. Given that a
+visible difference is on the order of `1.0`, we are not concerned with
+differences in the sixth decimal place.
+
+Instead, we are encouraged that we can get the “same” answer using two
+different implementations.
 
 ### Conversion to other colorspaces
 
