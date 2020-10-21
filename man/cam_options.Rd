@@ -2,7 +2,7 @@
 % Please edit documentation in R/options.R
 \name{cam_options}
 \alias{cam_options}
-\title{CAM colorspace options}
+\title{CAM color space options}
 \usage{
 cam_options(c = 0.69, Y_b = 20, L_A = 64/pi/5, ...)
 }
@@ -11,7 +11,7 @@ cam_options(c = 0.69, Y_b = 20, L_A = 64/pi/5, ...)
 
 \item{Y_b}{\code{numeric} relative luminance of the background}
 
-\item{L_A}{\code{nuemric} absolute luminance of  the adapting field}
+\item{L_A}{\code{numeric} absolute luminance of  the adapting field}
 
 \item{...}{other elements added to the options list}
 }
@@ -19,12 +19,15 @@ cam_options(c = 0.69, Y_b = 20, L_A = 64/pi/5, ...)
 \code{list}
 }
 \description{
-The CAM02 and CAM16 families of colorspaces use a set of parameters
-to establish a particular colorspace.
+The CAM02 and CAM16 families of color spaces use a set of parameters
+to establish a particular color space.
 }
 \details{
-I have no feel for how to use anything but the defaults.
+I have no feel for how to use anything other than the defaults.
 }
 \examples{
+if (FALSE) {
+  # not run because it requires Python
   cam16 <- do.call(colorio$CAM16, cam_options())
+}
 }
