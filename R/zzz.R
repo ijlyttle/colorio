@@ -28,7 +28,9 @@ on_colorio_error <- function(e) {
   message("Please try using install_colorio() to install")
   message("")
   message("Output from reticulate::py_config():")
-  reticulate::py_config()
+  print(reticulate::py_config())
+
+  NULL
 }
 
 .onLoad <- function(libname, pkgname) {
