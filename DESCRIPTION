@@ -26,11 +26,5 @@ Suggests:
     farver,
     waldo
 Config/testthat/edition: 3
-Config/reticulate:
-  list(
-    packages = list(
-      list(package = "colorio", pip = TRUE)
-    )
-  )
 URL: https://github.com/ijlyttle/colorio
 BugReports: https://github.com/ijlyttle/colorio/issues
