@@ -13,7 +13,7 @@ Description: Interface to 'colorio' <https://github.com/nschloe/colorio>, which
   is a 'Python' toolset for color models. This package uses the 'Reticulate' 
   framework <https://rstudio.github.io/reticulate> to manage the interface 
   between R and 'Python'.
-SystemRequirements: Python > 3, colorio > 0.7.3
+SystemRequirements: Python >= 3, colorio >= 0.7.3
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -29,7 +29,7 @@ Config/testthat/edition: 3
 Config/reticulate:
   list(
     packages = list(
-      list(package = "colorio", version = "0.7.3", pip = TRUE)
+      list(package = "colorio", pip = TRUE)
     )
   )
 URL: https://github.com/ijlyttle/colorio
