@@ -34,7 +34,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">colorio</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.0.0.9001</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.0.0.9002</span>
       </span>
     </div>
 
@@ -42,7 +42,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -53,7 +53,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/ijlyttle/colorio/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -80,77 +80,77 @@
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>You can install the development version of colorio from <a href="https://github.com/">GitHub</a> with:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="co"># install.packages("devtools")</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"ijlyttle/colorio"</span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"ijlyttle/colorio"</span><span class="op">)</span></code></pre></div>
 <p>Because this package uses the colorio Python package, you may need to follow a few steps. My recommendations are to:</p>
 <ul>
 <li>use (or create) a Conda installation.</li>
 <li>use (or create) a Python environment called <code>r-reticulate</code>.</li>
 <li>install the colorio Python package.</li>
 </ul>
-<!-- end list --><div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="fu">reticulate</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/reticulate/man/install_miniconda.html">install_miniconda</a></span><span class="op">(</span><span class="op">)</span>
+<!-- end list --><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">reticulate</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/reticulate/man/install_miniconda.html">install_miniconda</a></span><span class="op">(</span><span class="op">)</span>
 <span class="fu">reticulate</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/reticulate/man/conda-tools.html">conda_create</a></span><span class="op">(</span><span class="st">"r-reticulate"</span><span class="op">)</span>
-<span class="fu">colorio</span><span class="fu">::</span><span class="fu"><a href="reference/install_colorio.html">install_colorio</a></span><span class="op">(</span><span class="op">)</span></pre></div>
+<span class="fu">colorio</span><span class="fu">::</span><span class="fu"><a href="reference/install_colorio.html">install_colorio</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>If you use Python virtual environments, or if you use an environment not named <code>r-reticulate</code>, you can use the <code>method</code> and <code>envname</code> options in <code><a href="reference/install_colorio.html">install_colorio()</a></code>.</p>
 <p>To confirm everything is working, you can call <code><a href="reference/check_colorio.html">check_colorio()</a></code>:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="fu">colorio</span><span class="fu">::</span><span class="fu"><a href="reference/check_colorio.html">check_colorio</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; colorio version: 0.6.3</span></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">colorio</span><span class="fu">::</span><span class="fu"><a href="reference/check_colorio.html">check_colorio</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; colorio version: 0.6.3</span></code></pre></div>
 </div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
-<div class="sourceCode" id="cb4"><pre class="downlit">
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/ijlyttle/colorio">"colorio"</a></span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/ijlyttle/colorio">"colorio"</a></span><span class="op">)</span></code></pre></div>
 <p>In colorio, the basic unit of analysis is the color, expressed as three numbers - one for each dimension of a <strong>color space</strong>. This package has functions to create color-space objects; those objects will have methods we can call to convert to and from the “central” color-space: XYZ100, the <a href="https://en.wikipedia.org/wiki/CIE_1931_color_space">CIE 1931 XYZ color space</a> with dimensions normalized to 100.</p>
 <p>To convert values from one color space to another, we create each of the color-space objects - then use the <code>to_xyz100()</code> method from one of the color spaces, then the <code>from_xyz100()</code> method from the other.</p>
 <div id="conversion-tofrom-luv" class="section level3">
 <h3 class="hasAnchor">
 <a href="#conversion-tofrom-luv" class="anchor"></a>Conversion to/from LUV</h3>
 <p>To help demonstrate, we can use the <a href="https://farver.data-imaginist.com/"><strong>farver</strong></a> package, which has capabilities that overlap with this package.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit">
-<span class="va">hex_codes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#112233"</span>, <span class="st">"#336699"</span><span class="op">)</span>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">hex_codes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#112233"</span>, <span class="st">"#336699"</span><span class="op">)</span>
 
 <span class="va">farver_xyz100</span> <span class="op">&lt;-</span> <span class="fu">farver</span><span class="fu">::</span><span class="fu"><a href="https://farver.data-imaginist.com/reference/decode_colour.html">decode_colour</a></span><span class="op">(</span><span class="va">hex_codes</span>, to <span class="op">=</span> <span class="st">"xyz"</span><span class="op">)</span>
 <span class="va">farver_xyz100</span>
 <span class="co">#&gt;              x         y        z</span>
 <span class="co">#&gt; [1,]  1.400521  1.502124  3.34746</span>
-<span class="co">#&gt; [2,] 11.864259 12.505267 31.91932</span></pre></div>
+<span class="co">#&gt; [2,] 11.864259 12.505267 31.91932</span></code></pre></div>
 <p>The <code><a href="https://farver.data-imaginist.com/reference/decode_colour.html">farver::decode_colour()</a></code> function returns a matrix with a color in each row, and each column named for a dimension. We can convert these colors to the LUV color space:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit">
-<span class="va">farver_luv</span> <span class="op">&lt;-</span> <span class="fu">farver</span><span class="fu">::</span><span class="fu"><a href="https://farver.data-imaginist.com/reference/convert_colour.html">convert_colour</a></span><span class="op">(</span><span class="va">farver_xyz100</span>, from <span class="op">=</span> <span class="st">"xyz"</span>, to <span class="op">=</span> <span class="st">"luv"</span><span class="op">)</span>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">farver_luv</span> <span class="op">&lt;-</span> <span class="fu">farver</span><span class="fu">::</span><span class="fu"><a href="https://farver.data-imaginist.com/reference/convert_colour.html">convert_colour</a></span><span class="op">(</span><span class="va">farver_xyz100</span>, from <span class="op">=</span> <span class="st">"xyz"</span>, to <span class="op">=</span> <span class="st">"luv"</span><span class="op">)</span>
 <span class="va">farver_luv</span>
 <span class="co">#&gt;             l          u         v</span>
 <span class="co">#&gt; [1,] 12.62155  -5.406472 -11.55451</span>
-<span class="co">#&gt; [2,] 42.00815 -20.248606 -47.55476</span></pre></div>
+<span class="co">#&gt; [2,] 42.00815 -20.248606 -47.55476</span></code></pre></div>
 <p>Again, we get a matrix with a color in each row.</p>
 <p>We can make analogous calculations using colorio; the first step is to create an instance of the LUV color space:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit">
-<span class="va">LUV</span> <span class="op">&lt;-</span> <span class="va">colorio</span><span class="op">$</span><span class="fu">CIELUV</span><span class="op">(</span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">LUV</span> <span class="op">&lt;-</span> <span class="va">colorio</span><span class="op">$</span><span class="fu">CIELUV</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>This color space (as do all colorio color spaces) has a <code>from_xyz100()</code> method. Because Python is row-based and R is column-based, we have to use the transpose function, <code><a href="https://rdrr.io/r/base/t.html">t()</a></code>:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit">
-<span class="va">colorio_luv</span> <span class="op">&lt;-</span> <span class="va">LUV</span><span class="op">$</span><span class="fu">from_xyz100</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">farver_xyz100</span><span class="op">)</span><span class="op">)</span>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">colorio_luv</span> <span class="op">&lt;-</span> <span class="va">LUV</span><span class="op">$</span><span class="fu">from_xyz100</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">farver_xyz100</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">colorio_luv</span><span class="op">)</span>
 <span class="co">#&gt;          [,1]       [,2]      [,3]</span>
 <span class="co">#&gt; [1,] 12.62155  -5.406472 -11.55451</span>
-<span class="co">#&gt; [2,] 42.00815 -20.248608 -47.55476</span></pre></div>
+<span class="co">#&gt; [2,] 42.00815 -20.248608 -47.55476</span></code></pre></div>
 <p>We get essentially the same result; we can use the <code>to_xyz100()</code> method to go back:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit">
-<span class="va">colorio_xyz100</span> <span class="op">&lt;-</span> <span class="va">LUV</span><span class="op">$</span><span class="fu">to_xyz100</span><span class="op">(</span><span class="va">colorio_luv</span><span class="op">)</span>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">colorio_xyz100</span> <span class="op">&lt;-</span> <span class="va">LUV</span><span class="op">$</span><span class="fu">to_xyz100</span><span class="op">(</span><span class="va">colorio_luv</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">colorio_xyz100</span><span class="op">)</span>
 <span class="co">#&gt;           [,1]      [,2]     [,3]</span>
 <span class="co">#&gt; [1,]  1.400521  1.502124  3.34746</span>
-<span class="co">#&gt; [2,] 11.864259 12.505267 31.91932</span></pre></div>
+<span class="co">#&gt; [2,] 11.864259 12.505267 31.91932</span></code></pre></div>
 <p>We can use the <a href="https://waldo.r-lib.org/"><strong>waldo</strong></a> package to compare the sets of LUV coordinates:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit">
-<span class="fu">waldo</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/waldo/man/compare.html">compare</a></span><span class="op">(</span><span class="va">farver_luv</span>, <span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">colorio_luv</span><span class="op">)</span><span class="op">)</span>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">waldo</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/waldo/man/compare.html">compare</a></span><span class="op">(</span><span class="va">farver_luv</span>, <span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">colorio_luv</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; `dimnames(x)` is a list</span>
 <span class="co">#&gt; `dimnames(y)` is absent</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; `x`: 12.6215546 42.0081466 -5.4064720 -20.2486056 -11.5545113 -47.5547572</span>
-<span class="co">#&gt; `y`: 12.6215540 42.0081456 -5.4064723 -20.2486079 -11.5545117 -47.5547584</span></pre></div>
+<span class="co">#&gt; `y`: 12.6215540 42.0081456 -5.4064723 -20.2486079 -11.5545117 -47.5547584</span></code></pre></div>
 <p>We see that colorio does not return dimension-names (we knew that), and that numerical differences are on the order of <code>1.e-6</code>. Given that a visible difference is on the order of <code>1.0</code>, we are not concerned with differences in the sixth decimal place.</p>
 <p>Instead, we are encouraged that we can get the “same” answer using two different implementations.</p>
 </div>
@@ -159,23 +159,23 @@
 <a href="#conversion-to-other-colorspaces" class="anchor"></a>Conversion to other colorspaces</h3>
 <p>The reason I find the colorio Python package so compelling is the wide range of color spaces it offers, including the CAM02-UCS color space, and its successor CAM16-UCS. You may remember the CAM02-UCS color space was used by Stéfan van der Walt and Nathaniel Smith to <a href="https://www.youtube.com/watch?v=xAoljeRJ3lU">design the viridis palette</a>.</p>
 <p>To create a CAM16UCS color space (as well as for any of the CAM02 and CAM16 family), we have to supply some additional options. These options are contained in a helper function <code><a href="reference/cam_options.html">cam_options()</a></code>, which can be used in conjunction with <code><a href="https://rdrr.io/r/base/do.call.html">do.call()</a></code>:</p>
-<div class="sourceCode" id="cb11"><pre class="downlit">
-<span class="va">CAM16UCS</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/do.call.html">do.call</a></span><span class="op">(</span><span class="va">colorio</span><span class="op">$</span><span class="va">CAM16UCS</span>, <span class="fu"><a href="reference/cam_options.html">cam_options</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">CAM16UCS</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/do.call.html">do.call</a></span><span class="op">(</span><span class="va">colorio</span><span class="op">$</span><span class="va">CAM16UCS</span>, <span class="fu"><a href="reference/cam_options.html">cam_options</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>To get the coordinates for these colors in the CAM16-UCS color space, use its <code>from_xyz100()</code> method:</p>
-<div class="sourceCode" id="cb12"><pre class="downlit">
-<span class="va">colorio_cam16ucs</span> <span class="op">&lt;-</span> <span class="va">CAM16UCS</span><span class="op">$</span><span class="fu">from_xyz100</span><span class="op">(</span><span class="va">colorio_xyz100</span><span class="op">)</span>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">colorio_cam16ucs</span> <span class="op">&lt;-</span> <span class="va">CAM16UCS</span><span class="op">$</span><span class="fu">from_xyz100</span><span class="op">(</span><span class="va">colorio_xyz100</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">colorio_cam16ucs</span><span class="op">)</span>
 <span class="co">#&gt;          [,1]      [,2]      [,3]</span>
 <span class="co">#&gt; [1,] 15.49649 -3.623903 -10.94256</span>
-<span class="co">#&gt; [2,] 43.95556 -6.195777 -20.92419</span></pre></div>
+<span class="co">#&gt; [2,] 43.95556 -6.195777 -20.92419</span></code></pre></div>
 </div>
 <div id="color-difference-calculation" class="section level3">
 <h3 class="hasAnchor">
 <a href="#color-difference-calculation" class="anchor"></a>Color-difference calculation</h3>
 <p>If the colorspace is Cartesian (not polar), you can get a useful distance-calculation using the <code>colorio$delta()</code> function.</p>
 <p>Keep in mind that this calculates the sum-of-squares of differences between two color spaces. If you want the Euclidean distance, take the square root.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit">
-<span class="co"># expect a couple of zeroes</span>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># expect a couple of zeroes</span>
 <span class="va">colorio</span><span class="op">$</span><span class="fu">delta</span><span class="op">(</span><span class="va">colorio_cam16ucs</span>, <span class="va">colorio_cam16ucs</span><span class="op">)</span>
 <span class="co">#&gt; [1] 0 0</span>
 
@@ -184,7 +184,7 @@
   <span class="va">colorio_cam16ucs</span><span class="op">[</span>, <span class="fl">1</span>, drop <span class="op">=</span> <span class="cn">FALSE</span><span class="op">]</span>, 
   <span class="va">colorio_cam16ucs</span><span class="op">[</span>, <span class="fl">2</span>, drop <span class="op">=</span> <span class="cn">FALSE</span><span class="op">]</span>
 <span class="op">)</span>
-<span class="co">#&gt; [1] 916.1662</span></pre></div>
+<span class="co">#&gt; [1] 916.1662</span></code></pre></div>
 <p>There is nothing stopping you from providing non-Cartesian coordinates, other than your vigilance.</p>
 </div>
 </div>
