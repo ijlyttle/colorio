@@ -76,6 +76,7 @@ jobs:
 
       - name: Install colorio
         run: |
+          Rscript -e "try(remotes::install_local())"
           Rscript -e "try(colorio::install_colorio())"
 
       - name: Confirm Python and check colorio
