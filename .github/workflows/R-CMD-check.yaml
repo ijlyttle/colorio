@@ -69,10 +69,8 @@ jobs:
           remotes::install_cran("rcmdcheck")
         shell: Rscript {0}
 
-        # remove install_github() call when reticulate 1.17 on CRAN
       - name: Install Python
         run: |
-          Rscript -e "try(remotes::install_github('rstudio/reticulate'))"
           Rscript -e "try(reticulate::install_miniconda())"
           Rscript -e "try(reticulate::conda_create('r-reticulate'))"
 
