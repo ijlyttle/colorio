@@ -74,6 +74,11 @@ jobs:
           Rscript -e "try(reticulate::install_miniconda())"
           Rscript -e "try(reticulate::conda_create('r-reticulate'))"
 
+      - name: Confirm Python and check colorio
+        run: |
+          Rscript -e "try(reticulate::py_config())"
+          Rscript -e "try(colorio::check_colorio(quiet = FALSE))"
+
       - name: Check
         env:
           _R_CHECK_CRAN_INCOMING_REMOTE_: false
