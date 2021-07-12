@@ -35,6 +35,8 @@ on_colorio_error <- function(e) {
 
 .onLoad <- function(libname, pkgname) {
 
+  reticulate::configure_environment(pkgname)
+
   colorio <<-
     reticulate::import(
       "colorio",
