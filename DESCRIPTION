@@ -1,6 +1,6 @@
 Package: colorio
 Title: Interface to 'colorio'
-Version: 0.0.0.9003
+Version: 0.0.0.9004
 Authors@R: c(
     person(given = "Ian J",
            family = "Lyttle",
@@ -25,6 +25,12 @@ Suggests:
     testthat,
     farver,
     waldo
+Config/reticulate:
+  list(
+    packages = list(
+      list(package = "colorio")
+    )
+  )    
 Config/testthat/edition: 3
 URL: https://github.com/ijlyttle/colorio
 BugReports: https://github.com/ijlyttle/colorio/issues
