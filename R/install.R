@@ -104,5 +104,6 @@ check_colorio <- function(quiet = FALSE) {
 #' @export
 #'
 colorio_version <- function() {
-  colorio$`__version__`
+  pkg_resources <- reticulate::import("pkg_resources")
+  pkg_resources$get_distribution('colorio')$version
 }
